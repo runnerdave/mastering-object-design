@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Client {
     public static void main(String[] args) {
-        System.out.println("== Welcome to the Car application powered by Spring ==");
+        System.out.println("== Welcome to the Vehicle application powered by Spring ==");
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         Vehicle aCar = (Vehicle)context.getBean("mrBeansCar");
         aCar.crankIgnition();

@@ -1,13 +1,12 @@
 package net.runnerdave.hr_management_system.notifier;
 
 /**
- * Created by davidajimenez on 20/11/2016.
+ * Created by davidajimenez on 22/11/2016.
  */
-public class PayrollDepartment implements IObserver {
-
+public class HRDepartment implements IObserver {
     ISubject mgr;
 
-    public PayrollDepartment(ISubject mgr) {
+    public HRDepartment(ISubject mgr) {
         this.mgr = mgr;
         mgr.subscribe(this);
     }
