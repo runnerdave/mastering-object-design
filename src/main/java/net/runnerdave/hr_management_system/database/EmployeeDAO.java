@@ -3,8 +3,8 @@ package net.runnerdave.hr_management_system.database;
 import net.runnerdave.hr_management_system.domain.Employee;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by davidajimenez on 20/11/2016.
@@ -17,19 +17,32 @@ public class EmployeeDAO {
     Employee emp4 = new Employee("Pat", LocalDate.now(), 6000, false);
     Employee emp5 = new Employee("Joe", LocalDate.now(), 8000, false);
 
-    List<Employee> employees;
+    private Map<Integer, Employee> employees;
 
-    public List<Employee> generateEmployees(){
-        employees = new ArrayList<>();
-        employees.add(emp1);
-        employees.add(emp2);
-        employees.add(emp3);
-        employees.add(emp4);
-        employees.add(emp5);
+    public Map<Integer, Employee> generateEmployees(){
+        employees = new HashMap<>();
+        employees.put(emp1.getEmployeeID(), emp1);
+        employees.put(emp2.getEmployeeID(), emp2);
+        employees.put(emp3.getEmployeeID(), emp3);
+        employees.put(emp4.getEmployeeID(), emp4);
+        employees.put(emp5.getEmployeeID(), emp5);
         return employees;
     }
 
     public void addEmployee(Employee emp) {
-        employees.add(emp);
+        employees.put(emp.getEmployeeID(), emp);
+    }
+
+    public void removeEmployee(Employee emp) {
+        employees.remove(emp.getEmployeeID());
+    }
+
+    public Map<Integer, Employee> getEmployees() {
+        return employees;
+    }
+
+    public Employee getEmployeeByID(int empID) {
+        Employee emp = employees.get(empID);
+        return emp;
     }
 }
